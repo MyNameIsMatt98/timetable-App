@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">TimeTableDemo</string>
+    <string name="NewTask">New Task</string>
+    <string name="currentSetDate" />
+    <string-array name="Main">
+        <item>Timetable</item>
+        <item>New Task</item>
+        <item>Pomodoro Timer</item>
+        <item>Tasks</item>
+        <item>Settings</item>
+    </string-array>
+    <string-array name="Desc">
+        <item>View your scheduled lessons and studies</item>
+        <item>Add a new project or exam</item>
+        <item>Balance periods of study with breaks</item>
+        <item>View your ongoing tasks and track your progress</item>
+        <item>Configure your preferences</item>
+    </string-array>
+    <string-array name="NewTask">
+        <item>New Task</item>
+        <item>Task Name:</item>
+        <item>Due Date:</item>
+        <item>Task Type:</item>
+        <item>Estimated Effort:</item>
+    </string-array>
+</resources>

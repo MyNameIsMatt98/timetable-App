@@ -10,8 +10,11 @@ import android.widget.TextView;
 
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
-   // String DateResult;
+   public String DateResult;
    // TextView theDate = (TextView)getActivity().findViewById(R.id.dateField);
+   public int Year;
+   public int Month;
+   public int Day;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -27,8 +30,14 @@ public class DatePickerFragment extends DialogFragment
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
-       // DateResult = day +"/" + month + "/" + year;
-
-       // theDate.setText(DateResult);
+        DateResult = day +"/" + month+1 + "/" + year;
+        //NewTask.Date = DateResult;
+        Year = year;
+        Month = month;
+        Day = day;
+        ((NewTask)getActivity()).setDateView(DateResult);//set the date text field to the date selected.
+    }
+    public int getYear(){
+        return Year;
     }
 }

@@ -13,13 +13,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
-
+import android.arch.persistence.room.Room;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+//https://medium.freecodecamp.org/room-sqlite-beginner-tutorial-2e725e47bfab
     private Toolbar toolbar;
     private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

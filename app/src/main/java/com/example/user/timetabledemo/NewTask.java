@@ -14,17 +14,23 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class NewTask extends AppCompatActivity {
     public int Date;
     private TextView theDate;
+    private TextView theTitle;
     private Button button;
+    private Button confButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_task);
         theDate = (TextView) findViewById(R.id.dateField);
+        theTitle = (TextView) findViewById(R.id.editText);
         butTest();
+        ArrayList<Tasks> tasksAr = new ArrayList<Tasks>();
         //Intent incomingIntent = getIntent();
         //String date = incomingIntent.getStringExtra("DateResult");
         //theDate.setText(date);
@@ -47,6 +53,19 @@ public class NewTask extends AppCompatActivity {
     }
     public void setDateView(String d){
         theDate.setText(d);
+    }
+    public void butConfirm(){
+        confButton = (Button)findViewById(R.id.confirmButton);
+        confButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String date = (String)theDate.getText();
+                String title = (String)theTitle.getText();
+                Tasks temp = new Tasks(title,date);
+            }
+        });
+
+
     }
 
 }

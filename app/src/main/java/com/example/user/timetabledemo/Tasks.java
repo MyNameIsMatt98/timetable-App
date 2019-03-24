@@ -4,11 +4,13 @@ package com.example.user.timetabledemo;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-@Entity
+@Entity(tableName = "tasks_table")
 public class Tasks {
-    @PrimaryKey
-    private int id;
+    @NonNull
+    @PrimaryKey(autoGenerate = true)
+    private int Id;
     @ColumnInfo(name = "task_name")
     private String Name;
     @ColumnInfo(name ="task_datetime")
@@ -20,12 +22,24 @@ public class Tasks {
     @ColumnInfo(name = "task_description")
     private String Desc;     //can be null
 
+  /*  public Tasks(String name, String datetime, int hours, int words, String desc){
+        this.Name = name;
+        this.dateTime = datetime;
+        this.effortHours = hours;
+        this.effortWords = words;
+        this.Desc = desc;
+
+    }
+*/
+    public Tasks (){
+
+    }
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getName() {
@@ -67,4 +81,6 @@ public class Tasks {
     public void setDesc(String desc) {
         Desc = desc;
     }
+
+
 }

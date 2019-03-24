@@ -14,22 +14,37 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.arch.persistence.room.Room;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 //https://medium.freecodecamp.org/room-sqlite-beginner-tutorial-2e725e47bfab
+    //https://github.com/tlaabs/TimetableView
+    //https://developer.android.com/training/data-storage/room/index.html#java
     private Toolbar toolbar;
     private ListView listView;
+    public static myDatabase myDb;
+    //Database set up
+    private static final String DATABASE_NAME = "TaskDB";
+    private myDatabase taskDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //myDb = Room.databaseBuilder(getApplicationContext(),myDatabase.class,"timetable").build();
         setupUIView();
         initToolBar();
         setupListView();
+
+        taskDatabase = Room.databaseBuilder(getApplicationContext(),
+                myDatabase.class, DATABASE_NAME)
+                //.fallbackToDesctructiveMigration()  not working??
+                .build();
+
 
     }
     private void setupUIView(){
@@ -52,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
-                    case 0: break;
-                    case 1: {
-                        Intent intent = new Intent(MainActivity.this, NewTask.class);
+                    case 0: Intent intent = new Intent(MainActivity.this, timeTable.class);
                         startActivity(intent);
+                        break;
+                    case 1: {
+                        Intent intent2 = new Intent(MainActivity.this, viewTasks.class);
+                        startActivity(intent2);
                         break;
                     }
                     case 2: break;

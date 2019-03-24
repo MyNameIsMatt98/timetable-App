@@ -23,4 +23,8 @@
         <item>Task Type:</item>
         <item>Estimated Effort:</item>
     </string-array>
+    <string-array name="Effort">
+        <item>Words</item>
+        <item>Hours</item>
+    </string-array>
 </resources>

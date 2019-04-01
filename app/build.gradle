@@ -44,7 +44,7 @@ dependencies {
     implementation "android.arch.lifecycle:viewmodel:1.1.0"
 
 }
-configurations.all {
+/*configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
         def requested = details.requested
         if (requested.group == 'com.android.support') {
@@ -54,3 +54,4 @@ configurations.all {
         }
     }
 }
+*/

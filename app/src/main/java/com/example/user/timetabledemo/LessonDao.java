@@ -23,6 +23,8 @@ public interface LessonDao {
     @Query("DELETE FROM lesson_table")
     void deleteAllLessons();
 
+
+    //@Query("SELECT * FROM lesson_table")
     @Query("SELECT * FROM lesson_table WHERE day='Monday' ORDER BY time ASC ")
     LiveData<List<Lesson>> getMondayLessons();
 

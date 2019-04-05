@@ -10,11 +10,90 @@
         android:id="@+id/daySelected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="Monday"
+        android:textColor="@color/colorAccent"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/Mon" />
+
+    <Button
+        android:id="@+id/Mon"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Mon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Tue"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TUE"
+        app:layout_constraintStart_toEndOf="@+id/Mon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Wed"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="WED"
+        app:layout_constraintStart_toEndOf="@+id/Tue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Thu"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="THU"
+        app:layout_constraintStart_toEndOf="@+id/Wed"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Fri"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="FRI"
+        app:layout_constraintStart_toEndOf="@+id/Thu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Sat"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="SAT"
+        app:layout_constraintStart_toEndOf="@+id/Fri"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Sun"
+        android:textColor="@color/colorAccent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="SUN"
+        app:layout_constraintStart_toEndOf="@+id/Sat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/timetableRecycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        app:layout_constraintTop_toBottomOf="@+id/daySelected"
+        tools:listitem="@layout/lesson_item" />
+
 </android.support.constraint.ConstraintLayout>

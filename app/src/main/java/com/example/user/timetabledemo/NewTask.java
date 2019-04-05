@@ -160,7 +160,7 @@ public class NewTask extends AppCompatActivity {
         });
     }
     private void setTime(){
-        String theTimeFormat = "hh:mm";
+        String theTimeFormat = "HH:mm";
         SimpleDateFormat sdfTime = new SimpleDateFormat(theTimeFormat,Locale.ENGLISH);
         theTime.setText(sdfTime.format(theTimeCalendar.getTime()));
     }

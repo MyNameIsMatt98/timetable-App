@@ -19,13 +19,13 @@ public abstract class LessonDatabase extends RoomDatabase {
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),LessonDatabase.class, "lesson_database")
                     .fallbackToDestructiveMigration()
-                    .addCallback(roomCallBack)
+                    .addCallback(lessonCallBack)
                     .build();
         }
         return instance;
     }
 
-    private static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback(){
+    private static RoomDatabase.Callback lessonCallBack = new RoomDatabase.Callback(){
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
@@ -40,7 +40,9 @@ public abstract class LessonDatabase extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            lessonDao.insert(new Lesson("Programming","W301","11:00","Almas' lecture","Monday"));
+            Lesson test = new Lesson("Programming","W301","11:00","Almas' lecture","Monday");
+            lessonDao.insert(test);
+
             return null;
         }
     }

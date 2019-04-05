@@ -9,6 +9,7 @@
 
     <EditText
         android:id="@+id/TaskNameInput"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -24,6 +25,7 @@
 
     <TextView
         android:id="@+id/NewTaskTitle"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -35,6 +37,7 @@
 
     <EditText
         android:id="@+id/newTaskDate"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -53,6 +56,7 @@
 
     <EditText
         android:id="@+id/newTaskTime"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -70,6 +74,7 @@
 
     <EditText
         android:id="@+id/newTaskDescription"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -85,6 +90,7 @@
 
     <EditText
         android:id="@+id/newTaskEffort"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -100,6 +106,7 @@
 
     <Button
         android:id="@+id/newTaskConfirm"
+        android:textColor="@color/colorAccent"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -112,6 +119,7 @@
 
     <Spinner
         android:id="@+id/effort_spinner"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="16dp"

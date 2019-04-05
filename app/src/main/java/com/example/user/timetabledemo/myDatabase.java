@@ -41,14 +41,6 @@ public abstract class myDatabase extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            Tasks test = new Tasks();
-            test.setName("dissertation");
-            test.setDateTime("00000000000000");
-            test.setDesc("complete report to examiners");
-            test.setEffortHours(0);
-            test.setEffortWords(10000);
-           // myDao.addTask(new Tasks("dissertation","00000000000000",0,10000,"complete report to examiners"));//placeholder
-            myDao.addTask(test);
             return null;
         }
     }

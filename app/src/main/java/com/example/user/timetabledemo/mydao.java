@@ -1,4 +1,5 @@
 package com.example.user.timetabledemo;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -22,5 +23,5 @@ public interface mydao {
     void updateTask(Tasks task);
 
     @Query("SELECT * FROM tasks_table ORDER BY task_datetime ASC")
-    LiveData<List<Tasks>> getAllTasks();
+    LiveData<List<Tasks>> getAllTasks();//this ain't working
 }

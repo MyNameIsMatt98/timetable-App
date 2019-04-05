@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.user.timetabledemo"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -36,22 +36,11 @@ dependencies {
     implementation "android.arch.persistence.room:rxjava2:$room_version"
     implementation 'com.github.greasemonk:timetable:1.2.0'
 
-
-
     // ViewModel and LiveData
 
     implementation "android.arch.lifecycle:extensions:1.1.0"
     implementation "android.arch.lifecycle:viewmodel:1.1.0"
 
+    implementation 'com.github.EunsilJo:TimeTable:1.0'
+
 }
-/*configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion '25.3.0'
-            }
-        }
-    }
-}
-*/

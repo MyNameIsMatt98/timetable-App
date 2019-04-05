@@ -1,5 +1,6 @@
 package com.example.user.timetabledemo;
 
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 //https://medium.freecodecamp.org/room-sqlite-beginner-tutorial-2e725e47bfab
     //https://github.com/tlaabs/TimetableView
     //https://developer.android.com/training/data-storage/room/index.html#java
-    private Toolbar toolbar;
+   // private Toolbar toolbar;
     private ListView listView;
     public static myDatabase myDb;
     //Database set up
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //myDb = Room.databaseBuilder(getApplicationContext(),myDatabase.class,"timetable").build();
         setupUIView();
-        initToolBar();
+      //  initToolBar();
         setupListView();
 
         taskDatabase = Room.databaseBuilder(getApplicationContext(),
@@ -48,14 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void setupUIView(){
-    toolbar = (Toolbar)findViewById(R.id.ToolbarMain);
+   // toolbar = (Toolbar)findViewById(R.id.ToolbarMain);
     listView = (ListView)findViewById(R.id.MainList);
 
     }
-    private void initToolBar(){
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Timetable and Study");
-    }
+   // private void initToolBar(){
+   //     setSupportActionBar(toolbar);
+   //     getSupportActionBar().setTitle("Timetable and Study");
+   // }
     private void setupListView(){
         String[] title = getResources().getStringArray(R.array.Main);
         String[] desc = getResources().getStringArray(R.array.Desc);
@@ -71,12 +72,18 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1: {
-                        Intent intent2 = new Intent(MainActivity.this, viewTasks.class);
-                        startActivity(intent2);
+                        Intent intent1 = new Intent(MainActivity.this,viewTasks.class);
+                        Intent intent2 = new Intent(MainActivity.this, NewTask.class);
+                        intent1.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent1);
+                        startActivityForResult(intent2,1);
                         break;
                     }
                     case 2: break;
-                    case 3: break;
+                    case 3: {Intent intent4 = new Intent(MainActivity.this, viewTasks.class);
+                        startActivity(intent4);
+                        break;
+                    }
                     case 4: break;
                 }
             }

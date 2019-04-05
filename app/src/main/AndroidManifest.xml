@@ -4,16 +4,16 @@
     package="com.example.user.timetabledemo">
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".viewTasks"></activity>
-        <activity android:name=".timeTable" />
+        <activity android:name=".timeTable"></activity>
+        <activity
+            android:name=".viewTasks"
+            android:launchMode="singleTop" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewTask" />
+        <activity
+            android:name=".NewTask"
+            android:parentActivityName=".viewTasks" />
     </application>
 
 </manifest>

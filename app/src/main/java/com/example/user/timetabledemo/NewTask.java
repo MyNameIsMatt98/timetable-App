@@ -142,6 +142,8 @@ public class NewTask extends AppCompatActivity {
             }
         });
     }
+
+
     TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -150,6 +152,7 @@ public class NewTask extends AppCompatActivity {
             setTime();
         }
     };
+
     public void tapTime(){
         theTime.setOnClickListener(new View.OnClickListener() {
             @Override

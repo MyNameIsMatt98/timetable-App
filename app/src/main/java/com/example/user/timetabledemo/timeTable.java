@@ -2,7 +2,9 @@ package com.example.user.timetabledemo;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +28,7 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
     private Button saturday;
     private Button sunday;
     LessonAdapter lessonAdapter;
+    public static final int ADD_LESSON_REQUEST = 1;
 
 
 
@@ -49,6 +52,15 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
         friday.setOnClickListener(this);
         saturday.setOnClickListener(this);
         sunday.setOnClickListener(this);
+
+        FloatingActionButton buttonAddLesson = findViewById(R.id.button_add_lesson);
+        buttonAddLesson.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent LessonIntent = new Intent(timeTable.this,addLessonActivity.class);
+                startActivityForResult(LessonIntent,ADD_LESSON_REQUEST);
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.timetableRecycler_view);
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
@@ -203,6 +215,25 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
                 theDay.setText("Sunday");
                 checkDay();
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == ADD_LESSON_REQUEST && resultCode == RESULT_OK){
+            String title = data.getStringExtra(addLessonActivity.EXTRA_LESSON_TITLE);
+            String day = data.getStringExtra(addLessonActivity.EXTRA_LESSON_DAY);
+            String time = data.getStringExtra(addLessonActivity.EXTRA_LESSON_TIME);
+            String location = data.getStringExtra(addLessonActivity.EXTRA_LESSON_LOCATION);
+            String desc = data.getStringExtra(addLessonActivity.EXTRA_LESSON_DESC);
+
+            Lesson lesson = new Lesson(title,location,time,desc,day);
+            lessonViewModel.insert(lesson);
+
+            Toast.makeText(this, "Lesson Added", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Lesson Not Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

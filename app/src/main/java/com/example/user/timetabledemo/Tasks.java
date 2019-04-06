@@ -104,7 +104,7 @@ public class Tasks {
         */
       // return Long.toString(s);
         long current = java.time.Instant.now().toEpochMilli();
-        long millis = ((dateTimeFormatted.toEpochSecond(ZoneOffset.UTC)*1000 - (current))-3600000); //3600000 is one hour -- quick fix as result was one hour ahead
+        long millis = ((dateTimeFormatted.toEpochSecond(ZoneOffset.UTC)*1000 - (current))-3600000); //-3600000 takes away an hour -- quick fix as result was one hour ahead
         //ADD DAYS TO THE STRING BELOW:
         //also values seem to be wrong??
         if(millis <= 0){

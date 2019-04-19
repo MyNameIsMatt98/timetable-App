@@ -4,10 +4,7 @@
     <string name="currentSetDate" />
     <string-array name="Main">
         <item>Timetable</item>
-        <item>New Task</item>
-        <item>Pomodoro Timer</item>
         <item>Tasks</item>
-        <item>Settings</item>
     </string-array>
     <string-array name="Desc">
         <item>View your scheduled lessons and studies</item>

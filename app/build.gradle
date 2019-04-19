@@ -5,10 +5,12 @@ android {
     defaultConfig {
         applicationId "com.example.user.timetabledemo"
         minSdkVersion 26
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
     }
     buildTypes {
         release {
@@ -17,7 +19,10 @@ android {
         }
     }
     buildToolsVersion '28.0.3'
+    productFlavors {
+    }
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -35,13 +40,9 @@ dependencies {
     // optional - RxJava support for Room
     implementation "android.arch.persistence.room:rxjava2:$room_version"
     implementation 'com.github.greasemonk:timetable:1.2.0'
-
     // ViewModel and LiveData
-
-    implementation "android.arch.lifecycle:extensions:1.1.0"
-    implementation "android.arch.lifecycle:viewmodel:1.1.0"
-
+    implementation 'android.arch.lifecycle:extensions:1.1.0'
+    implementation 'android.arch.lifecycle:viewmodel:1.1.0'
     implementation 'com.github.EunsilJo:TimeTable:1.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
-
 }

@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,9 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
         saturday.setOnClickListener(this);
         sunday.setOnClickListener(this);
 
+
+
+
         FloatingActionButton buttonAddLesson = findViewById(R.id.button_add_lesson);
         buttonAddLesson.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -68,6 +72,7 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
 
         lessonAdapter = new LessonAdapter();
         recyclerView.setAdapter(lessonAdapter);
+
 
         //the following checks what today's day is so that the user is shown the lessons for today by default
         Calendar calendar = Calendar.getInstance();
@@ -101,7 +106,7 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
 
         lessonViewModel = ViewModelProviders.of(this).get(LessonViewModel.class);
         checkDay();
-
+        swipe();
 
 
     }
@@ -221,6 +226,7 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if(requestCode == ADD_LESSON_REQUEST && resultCode == RESULT_OK){
             String title = data.getStringExtra(addLessonActivity.EXTRA_LESSON_TITLE);
             String day = data.getStringExtra(addLessonActivity.EXTRA_LESSON_DAY);
@@ -232,8 +238,72 @@ public class timeTable extends AppCompatActivity implements View.OnClickListener
             lessonViewModel.insert(lesson);
 
             Toast.makeText(this, "Lesson Added", Toast.LENGTH_SHORT).show();
+            checkDay();
         }else{
             Toast.makeText(this, "Lesson Not Saved", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void swipe(){
+        ImageView imageView = new ImageView(this);
+        imageView.setOnTouchListener(new OnSwipeTouchListener(timeTable.this){
+            public void onSwipeRight() {
+                Toast.makeText(timeTable.this, "right", Toast.LENGTH_SHORT).show();
+                switch(theDay.getText().toString()){
+                    case "Monday": theDay.setText("Sunday");
+                        checkDay();
+                        break;
+                    case "Tuesday": theDay.setText("Monday");
+                        checkDay();
+                        break;
+                    case "Wednesday": theDay.setText("Tuesday");
+                        checkDay();
+                        break;
+                    case "Thursday": theDay.setText("Wednesday");
+                        checkDay();
+                        break;
+                    case "Friday": theDay.setText("Thursday");
+                        checkDay();
+                        break;
+                    case "Saturday": theDay.setText("Friday");
+                        checkDay();
+                        break;
+                    case "Sunday": theDay.setText("Saturday");
+                        checkDay();
+                        break;
+
+                }
+            }
+            public void onSwipeLeft() {
+                Toast.makeText(timeTable.this, "left", Toast.LENGTH_SHORT).show();
+                switch(theDay.getText().toString()){
+                    case "Monday": theDay.setText("Tuesday");
+                        checkDay();
+                        break;
+                    case "Tuesday": theDay.setText("Wednesday");
+                        checkDay();
+                        break;
+                    case "Wednesday": theDay.setText("Thursday");
+                        checkDay();
+                        break;
+                    case "Thursday": theDay.setText("Friday");
+                        checkDay();
+                        break;
+                    case "Friday": theDay.setText("Saturday");
+                        checkDay();
+                        break;
+                    case "Saturday": theDay.setText("Sunday");
+                        checkDay();
+                        break;
+                    case "Sunday": theDay.setText("Monday");
+                        checkDay();
+                        break;
+
+                }
+
+            }
+
+
+        });
     }
 }

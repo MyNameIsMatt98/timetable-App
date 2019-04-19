@@ -1,42 +1,44 @@
-<android.support.v7.widget.CardView
-    android:layout_height="wrap_content"
+<android.support.v7.widget.CardView android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:background="@color/colorAccent"
-    android:elevation="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent2"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="10dp"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
-        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent2">
 
         <ImageView
+            android:id="@+id/imageMain"
             android:layout_width="80dp"
             android:layout_height="105dp"
-            android:id="@+id/imageMain"
-            android:layout_marginLeft="10dp"
+            android:layout_centerHorizontal="true"
             />
 
         <TextView
             android:id="@+id/textMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_toRightOf="@+id/imageMain"
+            android:layout_below="@+id/imageMain"
             android:text="TimeTable"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"/>
+
         <TextView
+            android:id="@+id/textMainSub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textMainSub"
-            android:textStyle="italic"
             android:layout_below="@+id/textMain"
-            android:layout_toRightOf="@+id/imageMain"
-            android:textSize="16sp"
-            android:text="Description"
             android:layout_marginLeft="6dp"
-            />
+            android:text="Description"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

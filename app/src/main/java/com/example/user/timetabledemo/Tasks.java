@@ -90,27 +90,13 @@ public class Tasks {
     public String getDays(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         LocalDateTime dateTimeFormatted = LocalDateTime.parse(this.dateTime,formatter);
-        //dateTimeFormatted
-      // long s = SECONDS.between(LocalDate.now(),dateTimeFormatted);
-      /*  long d = DAYS.between(LocalDate.now(),dateTimeFormatted);
-        dateTimeFormatted.minusDays(d);
-        //long h = HOURS.between(LocalDate.now(),dateTimeFormatted);
-        long h = LocalDate.now().until(dateTimeFormatted,HOURS);
-        dateTimeFormatted.minusHours(h);
-        long m = MINUTES.between(LocalDate.now(),dateTimeFormatted);
-        dateTimeFormatted.minusMinutes(m);
-        long s = SECONDS.between(LocalDate.now(),dateTimeFormatted);
-        return (Long.toString(d)+" Days " +Long.toString(h)+" Hours " +Long.toString(m)+" Minutes " +Long.toString(s)+" Seconds");
-        */
-      // return Long.toString(s);
         long current = java.time.Instant.now().toEpochMilli();
         long millis = ((dateTimeFormatted.toEpochSecond(ZoneOffset.UTC)*1000 - (current))-3600000); //-3600000 takes away an hour -- quick fix as result was one hour ahead
-        //ADD DAYS TO THE STRING BELOW:
-        //also values seem to be wrong??
+
         if(millis <= 0){
             return "Expired on: " + this.dateTime;
         }
-        String dhms = String.format("%02d:%02d:%02d:%02d",TimeUnit.MILLISECONDS.toDays(millis), TimeUnit.MILLISECONDS.toHours(millis)-TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis)),
+        String dhms = String.format("%02d Days , %02d Hours \n %02d Minutes \n and %02d Seconds",TimeUnit.MILLISECONDS.toDays(millis), TimeUnit.MILLISECONDS.toHours(millis)-TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis)),
                 TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
                 TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
         return dhms;

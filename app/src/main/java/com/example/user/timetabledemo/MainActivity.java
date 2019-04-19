@@ -41,12 +41,6 @@ public class MainActivity extends AppCompatActivity {
       //  initToolBar();
         setupListView();
 
-        taskDatabase = Room.databaseBuilder(getApplicationContext(),
-                myDatabase.class, DATABASE_NAME)
-                //.fallbackToDesctructiveMigration()  not working??
-                .build();
-
-
     }
     private void setupUIView(){
    // toolbar = (Toolbar)findViewById(R.id.ToolbarMain);
@@ -72,17 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1: {
-                        Intent intent1 = new Intent(MainActivity.this,viewTasks.class);
-                        Intent intent2 = new Intent(MainActivity.this, NewTask.class);
-                        intent1.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent1);
-                        startActivityForResult(intent2,1);
-                        break;
-                    }
-                    case 2: break;
-                    case 3: {Intent intent4 = new Intent(MainActivity.this, viewTasks.class);
+                        Intent intent4 = new Intent(MainActivity.this, viewTasks.class);
                         startActivity(intent4);
                         break;
+
+                    }
+                    case 2: break;
+                    case 3: { break;
                     }
                     case 4: break;
                 }
